@@ -1,0 +1,187 @@
+body{
+    background: #E0EAFC;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+@font-face {
+    font-family: myfont;
+    src: url(fonts/Oswald-VariableFont_wght.ttf);
+}
+h1{
+    font-family:myfont;
+    color:rgb(151, 150, 150);
+    user-select: none;
+}
+.container{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background: #141E30;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    box-shadow:5px 0px 10px rgb(0, 0, 0),-5px 0px 10px black; 
+    width:400px;
+    text-align:center;
+    color:white;
+    height:500px;
+    border-radius:10px;
+    overflow:scroll;
+    transition: 1s;
+}
+.container::-webkit-scrollbar{
+    display:none;
+}
+#text{
+    width:300px;
+    height:30px;
+    font-size:20px;
+    border-radius:4px;
+    border:none;
+    color:rgb(0, 0, 0);
+    background-color:rgba(240, 248, 255, 0.548);
+    backdrop-filter:blur(10px);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#text:focus{
+    border:3px groove black;
+}
+#clear{
+    width:40px;
+    height:40px;
+    position:absolute;
+    bottom:10px;
+    left:190px;
+    display:none;
+    cursor: pointer;
+}
+#clear:active{
+    transition:1s;
+    transform:scale(0.8,0.8);
+}
+.btn{
+    background:url("images/next.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width:35px;
+    padding:10px;
+    border:2px solid black;
+    height:35px;
+    border-radius:50%;
+}
+#ul{
+    user-select:none;
+    transition:1s;
+    height:310px;
+    overflow:scroll;
+}
+#ul::-webkit-scrollbar{
+    display:none;
+}
+#ul li{
+    list-style:none;
+    text-align:start;
+    margin:20px;
+    position:relative;
+    font-size:19px; 
+    height:50px;
+    cursor:pointer;
+    margin-left:-20px;
+    border-radius:10px;
+    padding-left:40px;
+    font-weight:bold;
+    overflow:hidden;
+    padding-top:20px;
+    color:black;
+    background-color:rgb(255, 255, 255);
+    user-select:none;
+    animation:slide2 .5s;
+    font-family: "Avenir Next Condensed Medium", Calibri, "Gill Sans", sans-serif;
+}
+#ul li.checked::before{
+    content:'';
+    background-image:url(images/check.png);
+    position: absolute;
+    background-size:cover;
+    width:20px;
+    height:20px;
+    border:2px solid white;
+    border-radius: 50%;
+    left:5px;
+}
+@keyframes slide2 {
+    from{
+        left:-500px;
+    }
+    to{
+        left:0px;
+    }
+}
+.checked{
+    text-decoration-line: line-through;
+}
+li span{
+    position:absolute;
+    right:10px;
+    /* background-color:rgb(57, 56, 56); */
+    width:20px;
+    border-radius:50%;
+    height:20px;
+    padding-bottom:5px;
+    z-index:2;
+    color:rgb(127, 126, 126);
+    text-align:center;
+    transition:all .5s linear;
+}
+li span:hover{
+    background-color:rgba(166, 157, 157, 0.451);
+    color:black;
+}
+li #date{
+     position:absolute;
+     top:30px;
+     color:rgb(126, 126, 126);
+     font-size:11px;
+     
+}
+#ul li.remove{
+    animation:slide3 1s;
+    animation-fill-mode: forwards;
+}
+@keyframes slide3 {
+    from{
+        left:0px;
+    }
+    to{
+        left:500px;
+    }
+}
+#ul li.upslide{
+    transition:1s;
+    transform:translateY(100px);
+}
+#popup::after{
+    content:"";
+    background-color:red;
+    width:100px;
+    height:100px;
+}
+#ul li.popup::after{
+    content:'PLEASE COMPLETE THE TASK';
+    width:40%;
+    height:10%;
+    top:5px;
+    right:-10px;
+    font-size:10px;
+    position:absolute;
+    z-index:1;
+    animation:popup 1s;
+}
+@keyframes popup {
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
